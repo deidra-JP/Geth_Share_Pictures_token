@@ -1,22 +1,15 @@
 pragma solidity ^0.8.0;
 
 import "../../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
-import "../../node_modules/openzeppelin-solidity/contracts/access/Ownable.sol";
-
  
-contract MyErcShareToken is ERC721, Ownable {
+ 
+contract MyErcShareToken is ERC721 {
     
-    // Token name
-    string public SPtoken;
+    uint256 private _countTokenId = 0;
     
-    // Token symbol
-    string public SPT;
+    function _mintCountTokenId(uint256 _countTokenId) private {
         
-    function name() public view virtual override returns (string memory) {
-        return SPtoken;
-    }
-
-    function symbol() public view virtual override returns (string memory) {
-        return SPT;
-    }
+        _countTokenId += 1;
+        _mint(_msgSender(), _countTokenId);
+        
 }
