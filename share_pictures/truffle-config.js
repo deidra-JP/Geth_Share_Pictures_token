@@ -36,7 +36,9 @@ module.exports = {
 
   networks: {
     development: {
-      network_id: "15",
+      host: "localhost",
+      port: 7545,
+      network_id: "*",
     }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
